@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<link rel="stylesheet" href="main.css">
 	<script>
 	 var nw = require("nw.gui");
 	 var win = nw.Window.get();
@@ -17,7 +18,36 @@
 		document.write(markdown.toHTML("Hello **World**!"));
 	</script>
 	<div>
-		<p>basic hello</p>
+		<h2>Adding livereload ... </h2>
 	</div>
 </body>
+<script>
+  var gulp = require('gulp');
+  gulp.task('reload', function () {
+    if (location) location.reload();
+  });
+
+  gulp.watch('**/*', ['reload']);
+</script>
+<script>
+	// only for styles ... ?
+  // var gulp = require('gulp');
+
+  // gulp.task('html', function () {
+  //   if (location) location.reload();
+  // });
+
+  // gulp.task('css', function () {
+  //   var styles = document.querySelectorAll('link[rel=stylesheet]');
+
+  //   for (var i = 0; i < styles.length; i++) {
+  //     // reload styles
+  //     var restyled = styles[i].getAttribute('href') + '?v='+Math.random(0,10000);
+  //     styles[i].setAttribute('href', restyled);
+  //   };
+  // });
+
+  // gulp.watch(['**/*.css'], ['css']);
+  // gulp.watch(['**/*.html'], ['html']);
+</script>
 </html>
